@@ -1,0 +1,13 @@
+{
+  "extends": "default",
+  "rules": {
+    "bracket-align": false,
+    "statement-indent": false,
+    "expression-indent": false,
+    "two-lines-top-level-separator": false,
+    "indent": false,
+    "quotes": false,
+    "max-line-length": false,
+    "function-max-lines": false
+  }
+}

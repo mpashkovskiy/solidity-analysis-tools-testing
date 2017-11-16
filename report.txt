@@ -1,0 +1,88 @@
+Solhint: Government.sol
+
+   10:5   warning  Explicitly mark visibility of state                                              state-visibility
+   11:5   warning  Explicitly mark visibility of state                                              state-visibility
+   14:27  warning  Explicitly mark visibility in function                                           func-visibility
+   19:31  warning  Avoid to make time-based decisions in your business logic                        not-rely-on-time
+   22:49  warning  Explicitly mark visibility in function                                           func-visibility
+   22:64  error    Function body contains 52 lines but allowed no more than 50 lines                function-max-lines
+   26:50  warning  Avoid to make time-based decisions in your business logic                        not-rely-on-time
+   28:24  error    Check result of "send" call                                                      check-send-result
+   30:61  error    Check result of "send" call                                                      check-send-result
+   30:61  error    Avoid multiple calls of "send" method in single transaction                      multiple-sends
+   31:26  error    Check result of "send" call                                                      check-send-result
+   31:26  error    Avoid multiple calls of "send" method in single transaction                      multiple-sends
+   33:13  warning  Possible reentrancy vulnerabilities. Avoid state changes after transfer          reentrancy
+   34:13  warning  Possible reentrancy vulnerabilities. Avoid state changes after transfer          reentrancy
+   34:35  warning  Avoid to make time-based decisions in your business logic                        not-rely-on-time
+   35:13  warning  Possible reentrancy vulnerabilities. Avoid state changes after transfer          reentrancy
+   36:13  warning  Possible reentrancy vulnerabilities. Avoid state changes after transfer          reentrancy
+   37:13  warning  Possible reentrancy vulnerabilities. Avoid state changes after transfer          reentrancy
+   45:17  warning  Possible reentrancy vulnerabilities. Avoid state changes after transfer          reentrancy
+   45:39  warning  Avoid to make time-based decisions in your business logic                        not-rely-on-time
+   51:30  error    Check result of "send" call                                                      check-send-result
+   51:30  error    Avoid multiple calls of "send" method in single transaction                      multiple-sends
+   59:27  error    Check result of "send" call                                                      check-send-result
+   59:27  error    Avoid multiple calls of "send" method in single transaction                      multiple-sends
+   64:61  error    Check result of "send" call                                                      check-send-result
+   64:61  error    Avoid multiple calls of "send" method in single transaction                      multiple-sends
+   71:28  error    Check result of "send" call                                                      check-send-result
+   71:28  error    Avoid multiple calls of "send" method in single transaction                      multiple-sends
+   78:16  warning  Explicitly mark visibility in function                                           func-visibility
+   78:5   error    Function order is incorrect, fallback function can not go after public function  func-order
+   78:5   warning  When fallback is not payable you will not be able to receive ethers              payable-fallback
+   82:26  warning  Explicitly mark visibility in function                                           func-visibility
+   88:30  warning  Explicitly mark visibility in function                                           func-visibility
+   95:34  warning  Explicitly mark visibility in function                                           func-visibility
+  100:62  warning  Explicitly mark visibility in function                                           func-visibility
+  106:37  warning  Explicitly mark visibility in function                                           func-visibility
+  110:35  warning  Explicitly mark visibility in function                                           func-visibility
+
+✖ 36 problems (14 errors, 22 warnings)
+
+
+
+Oyente: Government.sol
+
+WARNING:root:You are using evm version 1.7.1. The supported version is 1.6.6
+INFO:root:Contract contracts/Government.sol:Government:
+INFO:symExec:Running, please wait...
+INFO:symExec:  ============ Results ===========
+INFO:symExec:    EVM Code Coverage:     69.7%
+INFO:symExec:    Callstack Depth Attack Vulnerability:  True
+INFO:symExec:    Transaction-Ordering Dependence (TOD): True
+INFO:symExec:    Timestamp Dependency:                  True
+INFO:symExec:    Re-Entrancy Vulnerability:             False
+INFO:symExec:    Assertion Failure:                     True
+INFO:symExec:contracts/Government.sol:31:13: Warning: Callstack Depth Attack Vulnerability.
+                     corruptElite.send(this.balance)
+contracts/Government.sol:28:13: Warning: Callstack Depth Attack Vulnerability.
+                     msg.sender.send(amount)
+contracts/Government.sol:59:21: Warning: Callstack Depth Attack Vulnerability.
+                     buddy.send(amount * 5/100)
+contracts/Government.sol:51:17: Warning: Callstack Depth Attack Vulnerability.
+                     corruptElite.send(amount * 5/100)
+contracts/Government.sol:30:13: Warning: Callstack Depth Attack Vulnerability.
+                     creditorAddresses[creditorAddresses.length - 1].send(profitFromCrash)
+contracts/Government.sol:64:21: Warning: Callstack Depth Attack Vulnerability.
+                     creditorAddresses[lastCreditorPayedOut].send(creditorAmounts[lastCreditorPayedOut])
+INFO:symExec:Flow1
+contracts/Government.sol:71:17: Warning: Transaction-Ordering Dependency.
+                     msg.sender.send(amount)
+Flow2
+contracts/Government.sol:30:13: Warning: Transaction-Ordering Dependency.
+                     creditorAddresses[creditorAddresses.length - 1].send(profitFromCrash)
+contracts/Government.sol:28:13: Warning: Transaction-Ordering Dependency.
+                     msg.sender.send(amount)
+contracts/Government.sol:31:13: Warning: Transaction-Ordering Dependency.
+                     corruptElite.send(this.balance)
+INFO:symExec:contracts/Government.sol:26:9: Warning: Timestamp Dependency.
+                     if (lastTimeOfNewCredit + TWELVE_HOURS < block.timestamp) {
+                     ^
+Spanning multiple lines.
+INFO:symExec:contracts/Government.sol:79:9: Warning: Assertion Failure.
+                     lendGovernmentMoney(0)
+Assertion violates when:
+                     creditorAddresses.length = 0
+                     lastTimeOfNewCredit = 115792089237316195423570985008687907853269984665640564039457584007913129596736
+INFO:symExec:  ====== Analysis Completed ======

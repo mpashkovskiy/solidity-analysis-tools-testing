@@ -13,24 +13,35 @@ Prerequisites:
 
 * [Docker](https://www.docker.com/)
 
+To run Docker container with tools execute:
+
+```
+docker build -t toolbox .
+docker run -it toolbox
+```
+
+This will open the container's shell with installed analysis tools, dependencies and contracts from `contracts` folder.
+
 To remove unused Docker images and containers after execution run `./cleanup.sh`
+
+## Solhint
+
+* Solhint: https://protofire.github.io/solhint/
+
+Configuration file is located here: contracts/.solhint.json
+
+Inside running container navigate to `/oyente/oyente/contracts` directory and run
+
+```
+solhint Government.sol
+```
 
 ## Oyente
 
 * Oyente: https://github.com/melonproject/oyente
 * Making Smart Contracts Smarter: http://www.comp.nus.edu.sg/~loiluu/papers/oyente.pdf
-* Docker file: `oyente/Dockerfile`
 
-To run Docker container with Oyente execute:
-
-```
-docker build -f oyente/Dockerfile -t oyente .
-docker run -it oyente
-```
-
-This will open the container's shell with installed Oyente, dependencies and contracts from `contracts` folder.
-
-To analyze a contract run
+To analyze a contract run from `/oyente/oyente` directory
 
 ```
 python oyente.py -a -s contracts/[contract name]
@@ -49,6 +60,5 @@ The only contract where Oyente finds security bugs is `contracts/Government.sol`
   * new version of https://github.com/jarjuk/sbuilder-ethereum once it will be available
   * https://github.com/trailofbits/manticore
   * https://github.com/b-mueller/mythril/
-  * https://protofire.github.io/solhint/
 * add contrats
 
