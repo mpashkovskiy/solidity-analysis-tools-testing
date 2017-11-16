@@ -5,9 +5,9 @@ Docker images with analysis tools and set of contracts to test.
 
 Contracts:
 
-* `Bank_*.sol` - buggy and correct contract from JJ
-* `Government.sol` - real contract with security bug from https://www.reddit.com/r/ethereum/comments/4ghzhv/governmentals_1100_eth_jackpot_payout_is_stuck/
-* `hkg-token-*.sol` - buggy and correct implementation of [EIP20 standard](https://github.com/ethereum/EIPs/issues/20) token
+* `contracts/Bank_*.sol` - buggy and correct contract from JJ
+* `contracts/Government.sol` - real contract with security bug from https://www.reddit.com/r/ethereum/comments/4ghzhv/governmentals_1100_eth_jackpot_payout_is_stuck/
+* `contracts/hkg-token-*.sol` - buggy and correct implementation of [EIP20 standard](https://github.com/ethereum/EIPs/issues/20) token
 
 Prerequisites:
 
