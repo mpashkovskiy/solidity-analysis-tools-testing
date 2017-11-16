@@ -11,7 +11,7 @@ Contracts:
 
 Prerequisites:
 
-* Docker
+* [Docker](https://www.docker.com/)
 
 To remove unused Docker images and containers after execution run `./cleanup.sh`
 
