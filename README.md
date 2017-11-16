@@ -17,9 +17,9 @@ To remove unused Docker images and containers after execution run `./cleanup.sh`
 
 ## Oyente
 
-Oyente: https://github.com/melonproject/oyente
-Making Smart Contracts Smarter: http://www.comp.nus.edu.sg/~loiluu/papers/oyente.pdf
-Docker file: `oyente/Dockerfile`
+* Oyente: https://github.com/melonproject/oyente
+* Making Smart Contracts Smarter: http://www.comp.nus.edu.sg/~loiluu/papers/oyente.pdf
+* Docker file: `oyente/Dockerfile`
 
 To run Docker container with Oyente execute:
 
@@ -29,7 +29,8 @@ docker run -it oyente
 ```
 
 This will open the container's shell with installed Oyente, dependencies and contracts from `contracts` folder.
-To analyze contract run
+
+To analyze a contract run
 
 ```
 python oyente.py -a -s contracts/[contract name]
@@ -37,16 +38,16 @@ python oyente.py -a -s contracts/[contract name]
 
 The only contract where Oyente finds security bugs is `contracts/Government.sol`. The bugs are:
 
-* Callstack Depth Attack Vulnerability
-* Transaction-Ordering Dependence (TOD)
-* Timestamp Dependency
+* [Callstack Depth Attack Vulnerability](https://consensys.github.io/smart-contract-best-practices/known_attacks/#call-depth-attack-deprecated)
+* [Transaction-Ordering Dependence (TOD)](https://consensys.github.io/smart-contract-best-practices/known_attacks/#transaction-ordering-dependence-tod-front-running)
+* [Timestamp Dependency](https://consensys.github.io/smart-contract-best-practices/known_attacks/#timestamp-dependence)
 * Assertion Failure
 
 ## ToDo
 
 * add tools:
- * https://github.com/trailofbits/manticore
- * https://github.com/b-mueller/mythril/
- * https://protofire.github.io/solhint/
+  * https://github.com/trailofbits/manticore
+  * https://github.com/b-mueller/mythril/
+  * https://protofire.github.io/solhint/
 * add contrats
 
